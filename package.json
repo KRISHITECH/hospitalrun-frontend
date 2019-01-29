@@ -16,7 +16,9 @@
     "start": "./script/server",
     "test": "./script/test",
     "electron-test": "ember electron:test",
-    "translation-sync": "babel-node script/translation/sync.js --presets es2015 && eslint --fix app/locales"
+    "translation-sync": "babel-node script/translation/sync.js --presets es2015 && eslint --fix app/locales",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -110,7 +112,8 @@
   "dependencies": {
     "electron-compile": "^6.3.0",
     "electron-localshortcut": "^1.1.1",
-    "electron-protocol-serve": "1.3.0"
+    "electron-protocol-serve": "1.3.0",
+    "snyk": "^1.123.0"
   },
   "ember-addon": {
     "paths": [
@@ -119,5 +122,6 @@
   },
   "config": {
     "forge": "./ember-electron/electron-forge-config.js"
-  }
+  },
+  "snyk": true
 }
